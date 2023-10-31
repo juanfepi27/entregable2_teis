@@ -1,28 +1,30 @@
-const pokeneaModel = require('../Models/Pokeneas');
+const Pokenea = require('../Models/Pokenea');
 const os = require('os');
 
 class PokeneaController{
 
     static index(req,res){
-        let id = Math.floor( Math.random() * pokeneaModel.pokeneasList.length );
-        let pokenea = pokeneaModel.pokeneasList[id]
+        let id = Math.floor( Math.random() * Pokenea.pokeneasList.length );
+        let pokenea = Pokenea.pokeneasList[id]
+
         let response = {
-            id : pokenea.getId,
-            name : pokenea.getName,
-            height : pokenea.getHeight,
-            ability : pokenea.getAbility,
+            id : pokenea.getId(),
+            name : pokenea.getName(),
+            height : pokenea.getHeight(),
+            ability : pokenea.getAbility(),
             containerId : os.hostname()
         }
 
-        res.send( response );
+        res.json( response );
     }
 
     static show(req,res){
-        let id = Math.floor( Math.random() * pokeneaModel.pokeneasList.length );
-        let pokenea = pokeneaModel.pokeneasList[id];
+        let id = Math.floor( Math.random() * Pokenea.pokeneasList.length );
+        let pokenea = Pokenea.pokeneasList[id];
+        
         let viewData = {
-            image: pokenea.getImage,
-            phrase: pokenea.getIconicPhrase,
+            image: pokenea.getImage(),
+            phrase: pokenea.getIconicPhrase(),
             containerId : os.hostname()
         }
 

@@ -1,13 +1,18 @@
-const pokeneaController = require('./Controllers/PokeneaController');
+const PokeneaController = require('./Controllers/PokeneaController');
 const express = require('express');
-const app = express();
-const port = 3000;
 
-app.set( 'view engine' , 'ejs' );
+class Routes{
 
-app.get( '/', pokeneaController.index );
-app.get( '/show', pokeneaController.show );
+    static main(){
 
-app.listen(port, () => {
-console.log(`Example app listening on port ${port}`);
-});
+        const router = express.Router();
+
+        router.get( '/', PokeneaController.index );
+        router.get( '/show', PokeneaController.show );
+
+        return router;
+    }
+
+}
+
+module.exports = Routes;

@@ -28,7 +28,7 @@ class PokeneaController{
             containerId : os.hostname()
         }
 
-        res.render('showPokenea', viewData);
+        res.render('show-pokenea', viewData);
     }
 }
 

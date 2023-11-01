@@ -2,9 +2,8 @@ const Pokenea = require('../Models/Pokenea');
 const os = require('os');
 
 class PokeneaController{
-
     static index(req,res){
-        let id = Math.floor( Math.random() * Pokenea.pokeneasList.length );
+        let id = Math.floor(Math.random() * Pokenea.pokeneasList.length);
         let pokenea = Pokenea.pokeneasList[id]
 
         let response = {
@@ -15,11 +14,11 @@ class PokeneaController{
             containerId : os.hostname()
         }
 
-        res.json( response );
+        res.json(response);
     }
 
     static show(req,res){
-        let id = Math.floor( Math.random() * Pokenea.pokeneasList.length );
+        let id = Math.floor(Math.random() * Pokenea.pokeneasList.length);
         let pokenea = Pokenea.pokeneasList[id];
         
         let viewData = {
